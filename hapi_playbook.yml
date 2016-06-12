@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  sudo: yes
+  roles:
+    - { role: epel, when: "ansible_os_family == 'RedHat'" }
+    - hapi_ansible
+  vars:
+    install_haproxy: true
+    set_hosts: true

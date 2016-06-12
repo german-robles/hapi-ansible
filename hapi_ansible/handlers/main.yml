@@ -1,0 +1,13 @@
+---
+
+- name: restart hapi
+  service:
+    name: hapi
+    state: restarted
+  when: hapi_service_state != 'stopped'
+
+- name: restart haproxy
+  service:
+    name: haproxy
+    state: restarted
+  when: haproxy_service_state != 'stopped'

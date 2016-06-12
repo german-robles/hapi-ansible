@@ -1,0 +1,19 @@
+---
+hapi_socat: '/var/run/haproxy.stat'
+hapi_user: 'admin'
+hapi_password: 'admin1234'
+hapi_logfile: '/var/log/hapi/hapi.log'
+hapi_debug: False
+hapi_port: 6000
+hapi_bind: '0.0.0.0'
+hapi_sslkey: '/opt/hapi/ssl/hapi.key'
+hapi_sslcrt: '/opt/hapi/ssl/hapi.crt'
+hapi_accesslog: '/opt/hapi/log/hapi_access.log'
+hapi_service_enabled: yes
+hapi_service_state: started
+hapi_daemon_user: hapi
+hapi_daemon_group: hapi
+
+#HAproxy vars
+haproxy_service_enabled: yes
+haproxy_service_state: started

@@ -1,0 +1,23 @@
+---
+
+- include: haproxy_debian.yml
+  when: ansible_os_family == 'Debian'
+
+- include: haproxy_redhat.yml
+  when: ansible_os_family == 'RedHat'
+
+- name: Configuring haproxy module
+  template:
+    src: "{{ item }}.j2"
+    dest: "/{{ item }}"
+    owner: haproxy
+    group: haproxy
+    mode: "0640"
+  notify: restart haproxy
+  with_items:
+    - "etc/haproxy/haproxy.cfg"  
+
+- name: Configuring haproxy service
+  service:
+    name: haproxy
+    state: started

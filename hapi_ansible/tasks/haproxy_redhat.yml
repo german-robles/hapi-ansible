@@ -1,0 +1,16 @@
+---
+
+- name: Install Essential Packages
+  yum: name={{ item }} state=latest
+  with_items:
+    - socat
+    - haproxy
+
+- stat: path=/etc/default/haproxy
+  register: default_file
+
+- name: Enable init script
+  when: default_file.stat.exists
+  replace: dest='/etc/default/haproxy' 
+         regexp='ENABLED=0'
+         replace='ENABLED=1'

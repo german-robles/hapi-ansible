@@ -1,0 +1,21 @@
+---
+
+- name: Install Essential Packages
+  yum: name={{ item }} state=latest
+  with_items:
+    - python-pip
+    - socat
+    - git
+
+
+- name: Install Python Requiers
+  pip: name={{ item }} state=present
+  with_items:
+    - flask
+    - Flask-HTTPAuth
+    - pyyaml
+    
+
+- name: Get HApi GIT repo
+  action: git repo=https://github.com/german-robles/hapi.git dest=/opt/hapi update=yes
+  tags: getrepo

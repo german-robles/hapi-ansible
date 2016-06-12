@@ -1,0 +1,8 @@
+---
+- include: install_hapi_debian.yml
+  when: ansible_os_family == 'Debian'
+
+- include: install_hapi_redhat.yml
+  when: ansible_os_family == 'RedHat'
+
+- file: dest=/opt/hapi owner=hapi group=hapi recurse=yes

@@ -1,0 +1,25 @@
+---
+
+- name: Apt-get update before installing
+  apt: update_cache=yes
+
+
+- name: Install Essential Packages
+  apt: pkg={{ item }} state=present
+  with_items:
+    - python-pip
+    - socat
+    - git
+
+
+- name: Install Python Requiers
+  pip: name={{ item }} state=present
+  with_items:
+    - flask
+    - Flask-HTTPAuth
+    - pyyaml
+
+
+- name: Get HApi GIT repo
+  action: git repo=https://github.com/german-robles/hapi.git dest=/opt/hapi update=yes force=yes
+  tags: getrepo

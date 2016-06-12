@@ -1,0 +1,20 @@
+---
+# Adding hapi user
+- group: name=hapi state=present
+- user: name=hapi comment="HApi user" group=hapi
+# Optional
+- lineinfile: dest=/etc/hosts line="127.0.0.1 lamp1.lbserver"
+  when: set_hosts
+- lineinfile: dest=/etc/hosts line="127.0.0.2 lamp2.lbserver"
+  when: set_hosts  
+
+- include: haproxy.yml
+  when: install_haproxy
+
+
+# HApi installation
+- include: install_hapi.yml
+- include: config_hapi.yml
+- include: service_hapi.yml
+
+

@@ -1,0 +1,10 @@
+---
+
+- name: Copy init.d script
+  template: src=hapi.j2 dest=/etc/init.d/hapi mode=0755
+
+- name: Configuring service
+  service:
+    name: hapi
+    state: "{{ hapi_service_state }}"
+    enabled: "{{ hapi_service_enabled }}"

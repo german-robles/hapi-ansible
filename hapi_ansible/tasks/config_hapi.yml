@@ -1,0 +1,17 @@
+---
+
+- name: Create target directory
+  file: path=/etc/hapi state=directory mode=0755
+- name: Create target directory
+  file: path=/var/log/hapi state=directory mode=0755 owner=hapi group=hapi
+
+
+- name: Configuring hapi module
+  template:
+    src: "{{ item }}.j2"
+    dest: "/{{ item }}"
+    owner: "{{ hapi_daemon_user }}"
+    group: "{{ hapi_daemon_group }}"
+    mode: "0640"
+  with_items:
+    - "etc/hapi/hapi.conf"

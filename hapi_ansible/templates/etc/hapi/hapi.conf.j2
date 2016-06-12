@@ -1,0 +1,19 @@
+
+# HApi general configuration
+socat: {{ hapi_socat }}
+sslkey: {{ hapi_sslkey }}
+sslcrt: {{ hapi_sslcrt }}
+accesslog: {{ hapi_accesslog }}
+logfile: {{ hapi_logfile }}
+user: {{ hapi_user }}
+password: {{ hapi_password }}
+bind: {{ hapi_bind }}
+port: {{ hapi_port }}
+debug: {{ hapi_debug }}
+
+
+# Backend and frontend configuration
+
+server: 'lamp'
+http-frontend:
+-  'wwwbackend'
