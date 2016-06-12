@@ -79,7 +79,7 @@ hapi_ansible/templates/etc/haproxy/haproxy.cfg.j2
 ```
 ## Usage:
 
-This playbook can be used using ansible playbook command as follows:
+###### This playbook can be used using ansible playbook command as follows:
 
 ```sh
 ansible-playbook -i <path/to/your/inventoryFile> hapi_playbook.yml
