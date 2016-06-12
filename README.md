@@ -1,4 +1,4 @@
-# HApi-ansible-role
+# HApi Ansible Role
 
 This repository contains ansible role to install and configure [HApi] and [HAproxy] (optional test environment).
 
